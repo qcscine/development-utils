@@ -15,8 +15,8 @@ macro(import_utils_os)
       include(DownloadProject)
       download_project(
         PROJ scine-utils-os
-        GIT_REPOSITORY https://github.com/qcscine/utils-open-source.git
-        GIT_TAG        3.0.0
+        GIT_REPOSITORY https://github.com/qcscine/utilities.git
+        GIT_TAG        3.0.1
         QUIET
       )
       # Note: Options defined in the project calling this function override default
