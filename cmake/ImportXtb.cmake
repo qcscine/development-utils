@@ -3,34 +3,36 @@
 # Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
 # See LICENSE.txt for details.
 #
-macro(import_core)
+macro(import_xtb)
   # If the target already exists, do nothing
-  if(NOT TARGET Scine::Core)
+  if(TARGET Scine::Xtb)
+    message(STATUS "Scine::Xtb present.")
+  else()
     # Try to find the package locally
-    find_package(ScineCore QUIET)
-    if(TARGET Scine::Core)
-      message(STATUS "Scine::Core found locally at ${ScineCore_DIR}")
+    find_package(ScineXtb QUIET)
+    if(TARGET Scine::Xtb)
+      message(STATUS "Scine::Xtb found locally at ${ScineXtb_DIR}")
     else()
       # Download it instead
       include(DownloadProject)
       download_project(
-        PROJ scine-core
-        GIT_REPOSITORY      https://github.com/qcscine/core.git
-        GIT_TAG             4.0.0
+        PROJ scine-xtb
+        GIT_REPOSITORY https://github.com/qcscine/xtb_wrapper.git
+        GIT_TAG        1.0.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default
       # option values specified in the imported project.
-      add_subdirectory(${scine-core_SOURCE_DIR} ${scine-core_BINARY_DIR})
+      add_subdirectory(${scine-xtb_SOURCE_DIR} ${scine-xtb_BINARY_DIR})
 
       # Final check if all went well
-      if(TARGET Scine::Core)
+      if(TARGET Scine::Xtb)
         message(STATUS
-          "Scine::Core was not found in your PATH, so it was downloaded."
+          "Scine::Xtb was not found in your PATH, so it was downloaded."
         )
       else()
         string(CONCAT error_msg
-          "Scine::Core was not found in your PATH and could not be established "
+          "Scine::Xtb was not found in your PATH and could not be established "
           "through a download. Try specifying Scine_DIR or altering "
           "CMAKE_PREFIX_PATH to point to a candidate Scine installation base "
           "directory."

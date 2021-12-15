@@ -1,14 +1,19 @@
-=========
 Changelog
 =========
 
+Release 4.0.0
+-------------
+
+- Add documentation for Conan
+- Various bugfixes and improvements
+
 Release 3.0.1
-=============
+-------------
 
 - Fix wrong URL in ImportUtilsOS.cmake
 
 Release 3.0.0
-=============
+-------------
 
 Initial release with all necessary functionality to support Molassembler.
 Among other things, this repository now includes all CMake files previously

@@ -12,7 +12,7 @@ macro(import_irc)
       include(DownloadProject)
       download_project(PROJ irc
         GIT_REPOSITORY      https://github.com/rmeli/irc.git
-        GIT_TAG             1ad396a90d2978610e23e8b0801a15c4b68b13e8
+        GIT_TAG             6d5c7c372d02ecdbd50f8981669c46ddae0638ac
         UPDATE_DISCONNECTED 1
         QUIET
       )
@@ -60,6 +60,7 @@ macro(import_irc)
           FILE irc-targets.cmake
           DESTINATION lib/cmake/irc
         )
+        export(EXPORT ircTargets FILE irc-targets.cmake)
         install(
           FILES
             ${irc_BINARY_DIR}/irc-config.cmake

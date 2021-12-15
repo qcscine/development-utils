@@ -6,7 +6,7 @@
 macro(import_pybind11)
   # If the target already exists, do nothing
   if(NOT TARGET pybind11::pybind11)
-    find_package(pybind11 2.4.2 EXACT QUIET)
+    find_package(pybind11 2.6.2 EXACT QUIET)
     if(TARGET pybind11::pybind11)
       message(STATUS "Found pybind11 at ${pybind11_DIR}")
     else()
@@ -15,7 +15,7 @@ macro(import_pybind11)
       download_project(
         PROJ pybind11
         GIT_REPOSITORY      https://github.com/pybind/pybind11.git
-        GIT_TAG             v2.4.2
+        GIT_TAG             v2.6.2
         QUIET
       )
 
