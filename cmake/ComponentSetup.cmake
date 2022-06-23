@@ -28,7 +28,7 @@ function(scine_setup_component)
   set(SCINE_CMAKE_PACKAGE_ROOT "lib/cmake" PARENT_SCOPE)
 
   # Compilation options
-  set(CMAKE_CXX_STANDARD 14 PARENT_SCOPE)
+  set(CMAKE_CXX_STANDARD 17 PARENT_SCOPE)
   option(SCINE_EXTRA_WARNINGS "Compile with an increased amount of compiler generated warnigs." ON)
   option(SCINE_WARNINGS_TO_ERRORS "Compile with warnings as errors." OFF)
   if(

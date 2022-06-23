@@ -16,14 +16,14 @@ macro(import_xtb)
       # Download it instead
       include(DownloadProject)
       download_project(
-        PROJ scine-xtb
+        PROJ scine-xtb-wrapper
         GIT_REPOSITORY https://github.com/qcscine/xtb_wrapper.git
-        GIT_TAG        1.0.0
+        GIT_TAG        1.0.1
         QUIET
       )
       # Note: Options defined in the project calling this function override default
       # option values specified in the imported project.
-      add_subdirectory(${scine-xtb_SOURCE_DIR} ${scine-xtb_BINARY_DIR})
+      add_subdirectory(${scine-xtb-wrapper_SOURCE_DIR} ${scine-xtb-wrapper_BINARY_DIR})
 
       # Final check if all went well
       if(TARGET Scine::Xtb)

@@ -74,4 +74,4 @@ def python_module_dir(pkg_folder: str):
         if os.path.exists(folder):
             return folder
 
-    raise RuntimeError("Python module folder not found!")
+    raise RuntimeError("Python module folder not found in {:s} !".format(pkg_folder))

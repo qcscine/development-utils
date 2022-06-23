@@ -13,7 +13,7 @@ function(import_libint)
   # If a library needs more than this, the file should be changed.
   set(IMPORT_LIBINT_MAX_AM "4")
   set(IMPORT_LIBINT_DERIV_ORDER_1BODY "1")
-  set(IMPORT_LIBINT_DERIV_ORDER_ERI "0")
+  set(IMPORT_LIBINT_DERIV_ORDER_ERI "1")
   list(APPEND IMPORT_LIBINT_DENS_FIT_FLAGS "--disable-eri2" "--disable-eri3")
   list(APPEND IMPORT_LIBINT_G12_FLAGS "--disable-g12" "--disable-g12dkh")
   # Uncomment this to enable density fitting up to IMPORT_LIBINT_DERIV_ORDER_ERI derivative.

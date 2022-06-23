@@ -4,6 +4,9 @@
 # See LICENSE.txt for details.
 #
 
+# Workaround for CMAKE_CURRENT_FUNCTION_LIST_DIR for pre-3.17 CMake
+set(_SPHINX_DOC_BASE_DIR "${CMAKE_CURRENT_LIST_DIR}")
+
 define_property(
   TARGET PROPERTY SPHINX_OUTPUT_DIR
   BRIEF_DOCS "Sphinx output directory"
@@ -150,7 +153,7 @@ function(scine_sphinx_documentation)
 
     add_test(
       NAME ${PYTHON_MODULE_NAME}Doctest
-      COMMAND ${PYTHON_EXECUTABLE} -c "import sys, doctest, ${PYTHON_MODULE_NAME}; (f, _) = doctest.testmod(${PYTHON_MODULE_NAME}); sys.exit(f > 0)"
+      COMMAND ${PYTHON_EXECUTABLE} ${_SPHINX_DOC_BASE_DIR}/doctest_pybind_module.py ${PYTHON_MODULE_NAME}
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
     )
 

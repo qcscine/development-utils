@@ -86,6 +86,8 @@ class ScineConan(ConanFile):
 
         # See the assumptions on this fn
         self._propagate_scine_option("python")
+        if self.settings.get_safe("python") == True:
+            self._propagate_scine_option("python_version")
 
         if self.options.get_safe("microarch") == "none":
             self._propagate_scine_option("microarch")
@@ -198,6 +200,11 @@ class ScineConan(ConanFile):
             else:
                 self.info.options.microarch = ""
 
+        # Clear python version if not applicable
+        if "python" in self.options:
+            if not self.options.get_safe("python") and "python_version" in self.options:
+                self.info.options.python_version = ""
+
         # Set package-revision mode for scine dependencies
         for dep in self.info.requires.pkg_names:
             if dep.startswith("scine_"):
@@ -259,12 +266,8 @@ class ScineConan(ConanFile):
 
         # Add python packages to PYTHONPATH
         if self.options.get_safe("python"):
-            try:
-                pypath = python_module_dir(self.package_folder)
-                self.env_info.PYTHONPATH.append(pypath)
-            except RuntimeError:
-                warning_str = "Expected python site-packages folder does not exist"
-                self.output.warn(warning_str)
+            pypath = python_module_dir(self.package_folder)
+            self.env_info.PYTHONPATH.append(pypath)
 
     def package_info(self) -> None:
         """ Defines properties of the package for downstream """

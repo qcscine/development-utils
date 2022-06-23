@@ -7,14 +7,15 @@
 # Adapted from Serenity
 include(FindPackageHandleStandardArgs)
 
-set(INTEL_ROOT "/opt/intel" CACHE PATH "Folder contains intel libs")
-set(MKL_ROOT $ENV{MKLROOT} CACHE PATH "Folder contains MKL")
+if ("${MKL_ROOT}" STREQUAL "")  # if not set by user we overwrite with MKLROOT from env
+  set(MKL_ROOT $ENV{MKLROOT} CACHE PATH "Folder contains MKL" FORCE)
+endif()
 
 set(MKL_FOUND TRUE)
 
 # Find include dir
 find_path(MKL_INCLUDE_DIRS mkl.h
-          PATHS ${MKL_ROOT}/include)
+          PATHS $ENV{MKL_INCLUDE_DIRS};${MKL_ROOT}/include;${INCLUDE};${INCLUDE}/mkl)
 
 # Detect architecture
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
@@ -30,24 +31,26 @@ else()
   set(MKL_LIB_ARCH lib/ia32/)
 endif()
 
+set(MKL_LOOKUP_PATHS "${MKL_ROOT}/${MKL_LIB_ARCH};${MKL_ROOT};${LIBRARY_PATH}/${MKL_LIB_ARCH};${LIBRARY_PATH};${LD_LIBRARY_PATH}/${MKL_LIB_ARCH};${LD_LIBRARY_PATH}" PATH)
+
 # Find libraries
 if ("${SYSTEM_BIT}" STREQUAL "64")
-  find_library(MKL_INTERFACE_LIBRARY libmkl_intel_lp64.so  PATHS ${MKL_ROOT}/lib/intel64/)
+  find_library(MKL_INTERFACE_LIBRARY NAMES libmkl_intel_lp64.so libmkl_intel_lp64.so.1 libmkl_intel_lp64.so.2 PATHS ${MKL_LOOKUP_PATHS})
 else()
-  find_library(MKL_INTERFACE_LIBRARY libmkl_intel.so  PATHS ${MKL_ROOT}/lib/ia32/)
+  find_library(MKL_INTERFACE_LIBRARY NAMES libmkl_intel.so libmkl_intel.so.1 libmkl_intel.so.2 PATHS ${MKL_LOOKUP_PATHS})
 endif()
 
 if("${CMAKE_CXX_COMPILER_ID}" MATCHES "Intel")
-  find_library(MKL_THREADING_LIBRARY libmkl_intel_thread.so PATHS ${MKL_ROOT}/${MKL_LIB_ARCH})
+  find_library(MKL_THREADING_LIBRARY NAMES libmkl_intel_thread.so libmkl_intel_thread.so.1 libmkl_intel_thread.so.2 PATHS ${MKL_LOOKUP_PATHS})
 elseif("${CMAKE_CXX_COMPILER_ID}" MATCHES "GNU")
-  find_library(MKL_THREADING_LIBRARY libmkl_gnu_thread.so PATHS ${MKL_ROOT}/${MKL_LIB_ARCH})
+  find_library(MKL_THREADING_LIBRARY NAMES libmkl_gnu_thread.so libmkl_gnu_thread.so.1 libmkl_gnu_thread.so.2 PATHS ${MKL_LOOKUP_PATHS})
 else()
   unset(MKL_FOUND)
 endif()
 
-find_library(MKL_CORE_LIBRARY libmkl_core.so PATHS ${MKL_ROOT}/${MKL_LIB_ARCH})
-find_library(MKL_AVX2_LIBRARY libmkl_avx2.so PATHS ${MKL_ROOT}/${MKL_LIB_ARCH})
-find_library(MKL_VML_AVX2_LIBRARY libmkl_vml_avx2.so PATHS ${MKL_ROOT}/${MKL_LIB_ARCH})
+find_library(MKL_CORE_LIBRARY NAMES libmkl_core.so libmkl_core.so.1 libmkl_core.so.2 PATHS ${MKL_LOOKUP_PATHS})
+find_library(MKL_AVX2_LIBRARY NAMES libmkl_avx2.so libmkl_avx2.so.1 libmkl_avx2.so.2 PATHS ${MKL_LOOKUP_PATHS})
+find_library(MKL_VML_AVX2_LIBRARY NAMES libmkl_vml_avx2.so libmkl_vml_avx2.so.1 libmkl_vml_avx2.so.2 PATHS ${MKL_LOOKUP_PATHS})
 
 set(MKL_LIBRARIES ${MKL_AVX2_LIBRARY} ${MKL_VML_AVX2_LIBRARY} ${MKL_INTERFACE_LIBRARY} ${MKL_THREADING_LIBRARY} ${MKL_CORE_LIBRARY})
 

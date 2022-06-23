@@ -16,7 +16,7 @@ macro(import_molassembler)
       download_project(
         PROJ                molassembler
         GIT_REPOSITORY      https://github.com/qcscine/molassembler.git
-        GIT_TAG             1.1.0
+        GIT_TAG             1.2.0
         QUIET
         UPDATE_DISCONNECTED 1
       )
