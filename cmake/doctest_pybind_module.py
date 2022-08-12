@@ -30,12 +30,19 @@ def direct_module_submodules(module):
 
 
 def module_submodules(module):
-    """ List all submodules of a module, traversing recursively """
-    # Collect submodules, returning a nested list
-    nested = [module_submodules(m) for m in direct_module_submodules(module)]
-    # Flatten and add the module itself
-    return [item for sublist in nested for item in sublist] + [module]
+    """ List all submodules of a module, traversing recursively, and the module itself """
+    return submodule_recursion(module, [module])
 
+
+def submodule_recursion(module, known_modules):
+    """ Recursion function for unique module search """
+    direct_submodules = direct_module_submodules(module)
+    for mod in direct_submodules:
+        if mod not in known_modules:
+            known_modules.append(mod)
+            known_modules = submodule_recursion(mod, known_modules)
+    return known_modules
+    
 
 if __name__ == "__main__":
     assert len(sys.argv) == 2

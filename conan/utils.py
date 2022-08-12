@@ -73,5 +73,8 @@ def python_module_dir(pkg_folder: str):
         folder = os.path.join(pkg_folder, lib, python_dir, "site-packages")
         if os.path.exists(folder):
             return folder
+        folder = os.path.join(pkg_folder, "local", lib, python_dir, "site-packages")
+        if os.path.exists(folder):
+            return folder
 
     raise RuntimeError("Python module folder not found in {:s} !".format(pkg_folder))

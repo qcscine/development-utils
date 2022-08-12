@@ -29,7 +29,7 @@ function(scine_setup_component)
 
   # Compilation options
   set(CMAKE_CXX_STANDARD 17 PARENT_SCOPE)
-  option(SCINE_EXTRA_WARNINGS "Compile with an increased amount of compiler generated warnigs." ON)
+  option(SCINE_EXTRA_WARNINGS "Compile with an increased amount of compiler generated warnings." ON)
   option(SCINE_WARNINGS_TO_ERRORS "Compile with warnings as errors." OFF)
   if(
     ${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU"

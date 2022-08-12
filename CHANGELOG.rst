@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Release 5.0.1
+-------------
+
+- Various bugfixes and improvements
+
 Release 5.0.0
 -------------
 
