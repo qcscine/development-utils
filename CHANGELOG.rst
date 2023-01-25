@@ -1,6 +1,15 @@
 Changelog
 =========
 
+Release 5.1.0
+-------------
+
+- Add CMake import for Spglib
+- Add CMake import for JSON by nlohmann
+- Add some download helper functions
+- Update LBFGS++ to version 0.2
+- Various bugfixes and improvements
+
 Release 5.0.1
 -------------
 

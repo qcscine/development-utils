@@ -28,7 +28,7 @@ macro(import_pybind11)
         )
       else()
         string(CONCAT error_msg
-          "Pybind11 was not be established through a download."
+          "Pybind11 could not be downloaded."
         )
         message(FATAL_ERROR ${error_msg})
       endif()

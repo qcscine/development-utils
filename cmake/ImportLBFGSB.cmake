@@ -12,7 +12,7 @@ macro(import_lbfgspp)
       include(DownloadProject)
       download_project(PROJ lbfgspp
         GIT_REPOSITORY      https://github.com/yixuan/LBFGSpp
-        GIT_TAG             7fea82aab31607fc51c2ffd751a21c031b9a1061
+        GIT_TAG             v0.2.0
         UPDATE_DISCONNECTED 1
         QUIET
       )

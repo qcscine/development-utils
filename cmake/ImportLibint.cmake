@@ -26,7 +26,7 @@ function(import_libint)
   # If the target already exists, do nothing
   if(NOT TARGET Libint2::cxx)
     # Try to find the package locally
-    find_package(Libint2 QUIET)
+    find_package(Libint2 2.7.2 QUIET)
 
     if(TARGET Libint2::cxx)
       message(STATUS "Libint2::cxx found locally at ${Libint2_DIR}")
@@ -34,7 +34,7 @@ function(import_libint)
       message(STATUS "libint2_cxx found locally at ${Libint2_DIR}")
       add_library(Libint2::cxx ALIAS libint2_cxx)
     else()
-      set(Libint2_VERSION "2.7.0-beta.6")
+      set(Libint2_VERSION "2.7.2")
       set(Libint2_TAG "v${Libint2_VERSION}")
       # Download it instead
       include(DownloadProject)
@@ -124,3 +124,4 @@ function(import_libint)
     endif()
   endif()
 endfunction()
+

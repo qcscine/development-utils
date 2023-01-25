@@ -16,7 +16,7 @@ macro(import_core)
       download_project(
         PROJ scine-core
         GIT_REPOSITORY      https://github.com/qcscine/core.git
-        GIT_TAG             4.0.2
+        GIT_TAG             4.1.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default
