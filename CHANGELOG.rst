@@ -1,6 +1,11 @@
 Changelog
 =========
 
+Release 6.0.0
+-------------
+
+- Use version 7.0.0 of Utilities
+
 Release 5.1.0
 -------------
 

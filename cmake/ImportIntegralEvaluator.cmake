@@ -15,7 +15,7 @@ macro(import_integral_evaluator)
       include(DownloadProject)
       download_project(
         PROJ scine-integral-evaluator
-        GIT_REPOSITORY git@gitlab.chab.ethz.ch:scine/integralevaluator.git
+        GIT_REPOSITORY https://github.com/qcscine/integralevaluator.git
         GIT_TAG        1.0.0
         QUIET
       )
