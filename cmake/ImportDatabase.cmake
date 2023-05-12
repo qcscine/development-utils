@@ -16,7 +16,7 @@ macro(import_database)
       download_project(
         PROJ scine-database
         GIT_REPOSITORY https://github.com/qcscine/database.git
-        GIT_TAG        1.1.0
+        GIT_TAG        1.2.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default

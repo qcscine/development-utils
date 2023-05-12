@@ -1,6 +1,16 @@
 Changelog
 =========
 
+Release 7.0.0
+-------------
+
+- Use version 5.0.0 of Core
+- Use version 8.0.0 of Utilities
+- Use version 2.0.0 of Molassembler
+- Use version 1.2.0 of database wrapper
+- Use version 4.0.0 of Sparrow
+- Use version 2.0.0 of xtb wrapper
+
 Release 6.0.0
 -------------
 

@@ -18,7 +18,7 @@ macro(import_xtb)
       download_project(
         PROJ scine-xtb-wrapper
         GIT_REPOSITORY https://github.com/qcscine/xtb_wrapper.git
-        GIT_TAG        1.0.2
+        GIT_TAG        2.0.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default
