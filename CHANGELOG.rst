@@ -1,6 +1,13 @@
 Changelog
 =========
 
+Release 8.0.0
+-------------
+
+- Improve support for compilation on Windows (MSVC)
+- Update Pybind11 to version 2.10.4
+- Update address in license
+
 Release 7.0.0
 -------------
 

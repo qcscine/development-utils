@@ -1,5 +1,5 @@
 __copyright__ = """This code is licensed under the 3-clause BSD license.
-Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
+Copyright Department of Chemistry and Applied Biosciences, Reiher Group.
 See LICENSE.txt for details
 """
 
@@ -20,7 +20,7 @@ class ScineConan(ConanFile):
     """
 
     license = "BSD-3-Clause"
-    author = "Research Group Prof. Markus Reiher, LPC, ETH Zurich"
+    author = "Research Group Prof. Markus Reiher, Department of Chemistry and Applied Biosciences, ETH Zurich"
     url = "https://github.com/qcscine"
     topics = ("chemistry", "cheminformatics")
     settings: Any = ("os", "compiler", "build_type", "arch")
@@ -173,7 +173,7 @@ class ScineConan(ConanFile):
     def build_requirements(self) -> None:
         """ Determine additional requirements needed only to build """
         if self.options.get_safe("python"):
-            self.build_requires("pybind11/2.6.2")
+            self.build_requires("pybind11/2.10.4")
 
         if self.options.get_safe("tests"):
             self.build_requires("gtest/1.10.0")

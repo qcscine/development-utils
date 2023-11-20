@@ -1,6 +1,6 @@
 #
 # This file is licensed under the 3-clause BSD license.
-# Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
+# Copyright Department of Chemistry and Applied Biosciences, Reiher Group.
 # See LICENSE.txt for details.
 #
 
@@ -17,7 +17,7 @@ macro(target_lib_path target output)
   if(_imported)
     foreach(_build_type Debug;Release;MinSizeRel;RelWithDebInfo)
       string(TOUPPER "${_build_type}" _upper_build_type)
-      get_target_property(_path_attempt ${target} IMPORTED_LOCATION_${_upper_build_type})
+      get_target_property(_path_attempt ${target} "IMPORTED_LOCATION_${_upper_build_type}")
       if(_path_attempt)
         set(${output} ${_path_attempt})
         break()
@@ -31,9 +31,32 @@ macro(target_lib_path target output)
       if(_path_attempt)
         set(${output} ${_path_attempt})
         unset(_path_attempt)
-      else()
-        message(FATAL_ERROR "Could not determine ${target} library filename from IMPORTED_LOCATION")
       endif()
+    endif()
+    
+    if(NOT DEFINED ${output})
+      foreach(_build_type Debug;Release;MinSizeRel;RelWithDebInfo)
+        string(TOUPPER "${_build_type}" _upper_build_type)
+        get_target_property(_path_attempt ${target} "IMPORTED_IMPLIB_${_upper_build_type}")
+        if(_path_attempt)
+          set(${output} ${_path_attempt})
+          break()
+        endif()
+      endforeach()
+      unset(_path_attempt)
+      unset(_upper_build_type)
+    endif()
+
+    if(NOT DEFINED ${output})
+      get_target_property(_path_attempt ${target} IMPORTED_IMPLIB)
+      if(_path_attempt)
+        set(${output} ${_path_attempt})
+        unset(_path_attempt)
+      endif()
+    endif()
+
+    if(NOT DEFINED ${output})
+      message(FATAL_ERROR "Could not determine ${target} library filename from IMPORTED_LOCATION or IMPORTED_IMPLIB")
     endif()
   else()
     get_target_property(_output_dir ${target} BINARY_DIR)

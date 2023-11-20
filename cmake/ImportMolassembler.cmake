@@ -1,6 +1,6 @@
 #
 # This file is licensed under the 3-clause BSD license.
-# Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
+# Copyright Department of Chemistry and Applied Biosciences, Reiher Group.
 # See LICENSE.txt for details.
 #
 macro(import_molassembler)
@@ -16,7 +16,7 @@ macro(import_molassembler)
       download_project(
         PROJ                molassembler
         GIT_REPOSITORY      https://github.com/qcscine/molassembler.git
-        GIT_TAG             2.0.0
+        GIT_TAG             2.0.1
         QUIET
         UPDATE_DISCONNECTED 1
       )

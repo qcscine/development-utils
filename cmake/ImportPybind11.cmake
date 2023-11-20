@@ -1,12 +1,12 @@
 #
 # This file is licensed under the 3-clause BSD license.
-# Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
+# Copyright Department of Chemistry and Applied Biosciences, Reiher Group.
 # See LICENSE.txt for details.
 #
 macro(import_pybind11)
   # If the target already exists, do nothing
   if(NOT TARGET pybind11::pybind11)
-    find_package(pybind11 2.6.2 EXACT QUIET)
+    find_package(pybind11 2.10.4 EXACT QUIET)
     if(TARGET pybind11::pybind11)
       message(STATUS "Found pybind11 at ${pybind11_DIR}")
     else()
@@ -15,7 +15,7 @@ macro(import_pybind11)
       download_project(
         PROJ pybind11
         GIT_REPOSITORY      https://github.com/pybind/pybind11.git
-        GIT_TAG             v2.6.2
+        GIT_TAG             v2.10.4
         QUIET
       )
 

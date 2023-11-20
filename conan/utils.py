@@ -1,5 +1,5 @@
 __copyright__ = """This code is licensed under the 3-clause BSD license.
-Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
+Copyright ETH Zurich, Department of Chemistry and Applied Biosciences, Reiher Group.
 See LICENSE.txt for details
 """
 
@@ -27,7 +27,7 @@ def microarch(conanfile: ConanFile):
 
     if conanfile.settings.compiler in ["clang", "apple-clang"]:
         cmdlist = ["clang", "-march=native", "-xc", "-", "-###"]
-        regex = r"\"-target-cpu\"\\s+\"(?P<arch>[A-z0-9]+)\""
+        regex = r"\"-target-cpu\"\s+\"(?P<arch>[A-z0-9]+)\""
 
     if regex is None:
         msg = "Cannot automatically determine microarch with {} compiler."

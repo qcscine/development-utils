@@ -1,6 +1,6 @@
 #
 # This file is licensed under the 3-clause BSD license.
-# Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
+# Copyright Department of Chemistry and Applied Biosciences, Reiher Group.
 # See LICENSE.txt for details.
 #
 macro(import_xtb)
@@ -18,7 +18,7 @@ macro(import_xtb)
       download_project(
         PROJ scine-xtb-wrapper
         GIT_REPOSITORY https://github.com/qcscine/xtb_wrapper.git
-        GIT_TAG        2.0.0
+        GIT_TAG        3.0.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default

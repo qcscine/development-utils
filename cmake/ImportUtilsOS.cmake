@@ -1,6 +1,6 @@
 #
 # This file is licensed under the 3-clause BSD license.
-# Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
+# Copyright Department of Chemistry and Applied Biosciences, Reiher Group.
 # See LICENSE.txt for details.
 #
 macro(import_utils_os)
@@ -16,7 +16,7 @@ macro(import_utils_os)
       download_project(
         PROJ scine-utils-os
         GIT_REPOSITORY https://github.com/qcscine/utilities.git
-        GIT_TAG        8.0.0
+        GIT_TAG        9.0.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default

@@ -1,6 +1,6 @@
 #
 # This file is licensed under the 3-clause BSD license.
-# Copyright ETH Zurich, Laboratory of Physical Chemistry, Reiher Group.
+# Copyright Department of Chemistry and Applied Biosciences, Reiher Group.
 # See LICENSE.txt for details.
 #
 
@@ -9,7 +9,7 @@
 # 2) environment
 # 3) system paths
 # after the call ${PYTHON_EXECUTABLE} should contain the correct path
-function(find_python_interpreter)
+macro(find_python_interpreter)
   if(NOT DEFINED Python_FIND_STRATEGY)
     set(Python_FIND_STRATEGY LOCATION)
   endif()
@@ -32,4 +32,4 @@ function(find_python_interpreter)
             "Unable to find Python interpreter, required for Python bindings. Please install Python or specify the PYTHON_EXECUTABLE CMake variable.")
   endif()
   message(STATUS "Found Python interpreter ${PYTHON_EXECUTABLE}")
-endfunction()
+endmacro()
