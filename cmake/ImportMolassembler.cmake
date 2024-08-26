@@ -16,7 +16,7 @@ macro(import_molassembler)
       download_project(
         PROJ                molassembler
         GIT_REPOSITORY      https://github.com/qcscine/molassembler.git
-        GIT_TAG             2.0.1
+        GIT_TAG             3.0.0
         QUIET
         UPDATE_DISCONNECTED 1
       )
@@ -31,8 +31,8 @@ macro(import_molassembler)
         )
       else()
         string(CONCAT error_msg
-          "Scine::Molassembler was not found in your PATH and could not be established "
-          "through a download. Try specifying molassembler_DIR or altering "
+          "Scine::Molassembler was not found in your PATH and could not be downloaded. "
+          "Try specifying molassembler_DIR or altering "
           "CMAKE_PREFIX_PATH to point to a candidate molassembler installation base "
           "directory."
         )

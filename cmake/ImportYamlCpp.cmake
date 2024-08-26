@@ -32,8 +32,8 @@ macro(import_yamlcpp)
         message(STATUS "yaml-cpp was not found in your PATH, so it was downloaded.")
       else()
         string(CONCAT error_msg
-          "yaml-cpp was not found in your PATH and could not be established through "
-          "a download. Try specifying yaml-cpp_DIR or altering CMAKE_PREFIX_PATH to "
+          "yaml-cpp was not found in your PATH and could not be downloaded. "
+          "Try specifying yaml-cpp_DIR or altering CMAKE_PREFIX_PATH to "
           "point to a candidate yaml-cpp installation base directory."
         )
         message(FATAL_ERROR ${error_msg})

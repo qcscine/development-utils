@@ -16,7 +16,7 @@ macro(import_database)
       download_project(
         PROJ scine-database
         GIT_REPOSITORY https://github.com/qcscine/database.git
-        GIT_TAG        1.3.0
+        GIT_TAG        1.4.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default
@@ -30,8 +30,8 @@ macro(import_database)
         )
       else()
         string(CONCAT error_msg
-          "Scine::Database was not found in your PATH and could not be established "
-          "through a download. Try specifying Scine_DIR or altering "
+          "Scine::Database was not found in your PATH and could not be downloaded. "
+          "Try specifying Scine_DIR or altering "
           "CMAKE_PREFIX_PATH to point to a candidate Scine installation base "
           "directory."
         )

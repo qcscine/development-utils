@@ -27,8 +27,8 @@ macro(import_cereal)
         message(STATUS "Cereal was not found in your PATH, so it was downloaded.")
       else()
         string(CONCAT error_msg
-          "Cereal was not found in your PATH and could not be established through "
-          "a download. Try specifying cereal_DIR or altering CMAKE_PREFIX_PATH to "
+          "Cereal was not found in your PATH and could not be downloaded. "
+          "Try specifying cereal_DIR or altering CMAKE_PREFIX_PATH to "
           "point to a candidate cereal installation base directory."
         )
         message(FATAL_ERROR ${error_msg})

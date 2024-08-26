@@ -73,8 +73,8 @@ macro(import_irc)
         message(STATUS "IRC was not found in your PATH, so it was downloaded.")
       else()
         string(CONCAT error_msg
-          "IRC was not found in your PATH and could not be established through "
-          "a download. Try specifying irc_DIR or altering CMAKE_PREFIX_PATH to "
+          "IRC was not found in your PATH and could not be downloaded. "
+          "Try specifying irc_DIR or altering CMAKE_PREFIX_PATH to "
           "point to a candidate irc installation base directory."
         )
         message(FATAL_ERROR ${error_msg})

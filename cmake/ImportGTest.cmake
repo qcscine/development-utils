@@ -10,8 +10,8 @@ macro(import_gtest)
     set(INSTALL_GTEST OFF CACHE BOOL "Disable Gtests install" FORCE)
     # Try to find the package locally
     set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}")
-    find_package(GTest 1.10.0 QUIET)
-    find_package(GMock 1.10.0 QUIET)
+    find_package(GTest 1.12.1 QUIET)
+    find_package(GMock 1.12.1 QUIET)
     if((NOT TARGET GMock::GMock) OR (NOT TARGET GMock::Main))
       if((TARGET gmock) AND (TARGET gmock_main))
         add_library(GMock::GMock ALIAS gmock)
@@ -28,7 +28,7 @@ macro(import_gtest)
       download_project(
         PROJ                googletest
         GIT_REPOSITORY      https://github.com/google/googletest.git
-        GIT_TAG             release-1.10.0
+        GIT_TAG             release-1.12.1
         QUIET
         UPDATE_DISCONNECTED 1
       )
@@ -52,8 +52,9 @@ macro(import_gtest)
         message(STATUS "GTest and GMock sources were downloaded.")
       else()
         string(CONCAT error_msg
-          "GTest was not found in your PATH and could not be established through "
-          "a download. Try specifying GTest_DIR or altering CMAKE_PREFIX_PATH to "
+          "GTest was not found in your PATH and could not be downloaded. "
+          "Try specifying GTest_DIR or altering "
+          "CMAKE_PREFIX_PATH to "
           "point to a candidate GTest installation base directory."
         )
         message(FATAL_ERROR ${error_msg})

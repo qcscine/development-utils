@@ -113,8 +113,8 @@ function(import_libint)
         )
       else()
         string(CONCAT error_msg
-          "Libint2::cxx was not found in your PATH and could not be established "
-          "through a download. Try specifying "
+          "Libint2::cxx was not found in your PATH and could not be downloaded. "
+          "Try specifying "
           "CMAKE_PREFIX_PATH to point to a candidate installation base "
           "directory."
         )

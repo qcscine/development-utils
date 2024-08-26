@@ -18,7 +18,7 @@ macro(import_xtb)
       download_project(
         PROJ scine-xtb-wrapper
         GIT_REPOSITORY https://github.com/qcscine/xtb_wrapper.git
-        GIT_TAG        3.0.0
+        GIT_TAG        3.0.1
         QUIET
       )
       # Note: Options defined in the project calling this function override default
@@ -32,8 +32,8 @@ macro(import_xtb)
         )
       else()
         string(CONCAT error_msg
-          "Scine::Xtb was not found in your PATH and could not be established "
-          "through a download. Try specifying Scine_DIR or altering "
+          "Scine::Xtb was not found in your PATH and could not be downloaded. "
+          "Try specifying Scine_DIR or altering "
           "CMAKE_PREFIX_PATH to point to a candidate Scine installation base "
           "directory."
         )

@@ -1,6 +1,14 @@
 Changelog
 =========
 
+Release 9.0.0
+-------------
+
+- Add CMake import for pugiXML
+- Add CMake import for SCINE Swoose
+- Add CMake import for Sundials
+- UpdateGoogleTest to 1.12.1
+
 Release 8.0.0
 -------------
 

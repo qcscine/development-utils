@@ -18,7 +18,7 @@ macro(import_sparrow)
       download_project(
         PROJ scine-sparrow
         GIT_REPOSITORY https://github.com/qcscine/sparrow.git
-        GIT_TAG        5.0.0
+        GIT_TAG        5.1.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default
@@ -32,8 +32,8 @@ macro(import_sparrow)
         )
       else()
         string(CONCAT error_msg
-          "Scine::Sparrow was not found in your PATH and could not be established "
-          "through a download. Try specifying Scine_DIR or altering "
+          "Scine::Sparrow was not found in your PATH and could not be downloaded. "
+          "Try specifying Scine_DIR or altering "
           "CMAKE_PREFIX_PATH to point to a candidate Scine installation base "
           "directory."
         )
