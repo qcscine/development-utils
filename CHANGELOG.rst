@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Release 10.0.0
+--------------
+
+- Update Pybind11 to version 2.13.6
+- Update Cereal to version 1.3.2
+
 Release 9.0.0
 -------------
 

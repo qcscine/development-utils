@@ -173,7 +173,7 @@ class ScineConan(ConanFile):
     def build_requirements(self) -> None:
         """ Determine additional requirements needed only to build """
         if self.options.get_safe("python"):
-            self.build_requires("pybind11/2.10.4")
+            self.build_requires("pybind11/2.13.6")
 
         if self.options.get_safe("tests"):
             self.build_requires("gtest/1.10.0")

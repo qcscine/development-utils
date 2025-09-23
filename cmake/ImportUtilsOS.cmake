@@ -16,7 +16,7 @@ macro(import_utils_os)
       download_project(
         PROJ scine-utils-os
         GIT_REPOSITORY https://github.com/qcscine/utilities.git
-        GIT_TAG        10.0.0
+        GIT_TAG        10.1.0
         QUIET
       )
       # Note: Options defined in the project calling this function override default

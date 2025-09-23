@@ -14,8 +14,8 @@ macro(import_cereal)
       # Download it instead
       include(DownloadProject)
       download_project(PROJ                cereal
-                       GIT_REPOSITORY      https://gitlab.chab.ethz.ch/scine/cereal.git
-                       GIT_TAG             v1.2.2
+                       GIT_REPOSITORY      https://github.com/USCiLab/cereal.git
+                       GIT_TAG             v1.3.2
                        QUIET
                        UPDATE_DISCONNECTED 1
                        )
